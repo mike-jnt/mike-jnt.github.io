@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buena vida con Hadita</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #0056b3;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-height: 300px;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      animation: slide 15s infinite;
+    }
+
+    @keyframes slide {
+      0%, 33% { transform: translateX(0); }
+      34%, 66% { transform: translateX(-100%); }
+      67%, 100% { transform: translateX(-200%); }
+    }
+
+    .bienvenida {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .bienvenida img {
+      width: 250px;
+      height: auto;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .presentacion-hadita {
+      background: linear-gradient(135deg, #007BFF, #00C6FF);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      max-width: 500px;
+      margin-left: 20px;
+      text-align: justify;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .producto {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .producto img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .producto h3 {
+      margin: 10px 0 5px;
+    }
+
+    .producto p {
+      margin: 5px 0;
+    }
+
+    .producto a {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #007BFF;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    .contacto {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 20px;
+      background-color: #f5f5f5;
+    }
+
+    .contacto iframe {
+      max-width: 100%;
+      border: none;
+      border-radius: 15px;
+    }
+
+    .redes {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .redes a {
+      display: inline-block;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Estilo del título con fondo */
+    .titulo-seccion {
+      background: linear-gradient(to right, #007BFF, #00C6FF);
+      color: white;
+      padding: 10px 20px;
+      margin: 40px 0 20px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      font-size: 24px;
+    }
+
+    /* Buscador */
+    .buscador-contenedor {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    #buscador {
+      width: 80%;
+      max-width: 400px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 25px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    #buscador:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Buena vida con Hadita</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#contacto">Contáctanos</a></li>
+    </ul>
+  </nav>
+
+  <div class="carousel">
+    <img src="https://via.placeholder.com/1200x300?text=Promoción+1" alt="Promoción 1">
+    <img src="https://via.placeholder.com/1200x300?text=Promoción+2" alt="Promoción 2">
+    <img src="https://via.placeholder.com/1200x300?text=Promoción+3" alt="Promoción 3">
+  </div>
+
+  <section class="bienvenida" id="inicio">
+    <img src="https://via.placeholder.com/250x250?text=Hadita" alt="Hadita animada">
+    <div class="presentacion-hadita">
+      <h2>Bienvenidos a Buena vida con Hadita</h2>
+      <p>Explora productos diseñados para mejorar tu bienestar y calidad de vida. Desde artículos naturales hasta regalos mágicos, descubre el poder de lo simple.</p>
+    </div>
+  </section>
+
+  <div class="titulo-seccion" id="productos">Productos</div>
+
+  <!-- Buscador de productos -->
+  <div class="buscador-contenedor">
+    <input type="text" id="buscador" placeholder="Buscar productos..." />
+  </div>
+
+  <div class="productos">
+    <div class="producto">
+      <img src="https://via.placeholder.com/200" alt="Producto 1" />
+      <h3>Té relajante</h3>
+      <p>$15.000</p>
+      <a href="https://wa.me/573000000000">Comprar</a>
+    </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/200" alt="Producto 2" />
+      <h3>Velas aromáticas</h3>
+      <p>$20.000</p>
+      <a href="https://wa.me/573000000000">Comprar</a>
+    </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/200" alt="Producto 3" />
+      <h3>Sales de baño</h3>
+      <p>$18.000</p>
+      <a href="https://wa.me/573000000000">Comprar</a>
+    </div>
+    <!-- Puedes seguir agregando más productos aquí -->
+  </div>
+
+  <div class="titulo-seccion" id="contacto">Contáctanos</div>
+
+  <section class="contacto">
+    <iframe width="360" height="215" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    <div class="redes">
+      <a href="https://wa.me/573000000000">WhatsApp</a>
+      <a href="https://facebook.com">Facebook</a>
+      <a href="https://instagram.com">Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Buena vida con Hadita. Todos los derechos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/573000000000" class="whatsapp-float">💬</a>
+
+  <!-- Script del buscador -->
+  <script>
+    document.getElementById("buscador").addEventListener("keyup", function () {
+      const filtro = this.value.toLowerCase();
+      const productos = document.querySelectorAll(".producto");
+
+      productos.forEach((producto) => {
+        const texto = producto.textContent.toLowerCase();
+        producto.style.display = texto.includes(filtro) ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
